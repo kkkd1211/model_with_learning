@@ -3,8 +3,11 @@
 #include"head.h"
 using namespace std;
 
-
 gene::gene()
+{
+    setinit();
+}
+void gene::setinit()
 {
     int i;
     for(i=0;i<Nx;i++)
@@ -43,6 +46,22 @@ void gene::print(char name[20])
     fprintf(fp,"\n");
     fclose(fp);
 }
-
-
+void gene::settarget(double t[Nx])
+{
+    int i;
+    for(i=0;i<Nx;i++)
+    {
+        target[i]=t[i];
+    }
+}
+double gene::error()
+{
+    int i;
+    double tmp=0;
+    for(i=0;i<Nx;i++)
+    {
+        tmp+=(c0[i]-target[i])*(c0[i]-target[i]);
+    }
+    return tmp;
+}
 
