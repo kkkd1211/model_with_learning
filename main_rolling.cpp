@@ -5,25 +5,18 @@
 #include "func.h"
 #include <sys/stat.h>
 using namespace std;
-#define K0 1    //7.3
+#define K0 1.0  //7.3
 #define K1 6.31 //8.1
-#define K2 10   //8.3
+#define K2 10.0 //8.3
 #define T 2000
-int topolo[7][7]={  0,  0,  0,  1,  1,  0,  1,
-                    0,  0,  0,  0,  0,  0,  1,
-                    0,  0,  0, -1,  0,  0, -1,
-                    0,  0,  0,  0, -1,  0,  0,
-                    0,  0,  0, -1,  1,  2,  0,
-                    0,  0,  0,  0,  0,  0, -1,
-                    0,  0,  0,  0,  0, -1,  0
-                    };
-double k[7][7]={    K0, K0, K0, K0, K0, K0, K0,
-                    K0, K0, K0, K0, K0, K0, K0,
-                    K0, K0, K0, K0, K0, K0, K0,
-                    K0, K0, K0, K0, K0, K0, K0,
-                    K0, K0, K0, K1, K0, K0, K0,
-                    K0, K0, K0, K0, K0, K0, K2,
-                    K0, K0, K0, K0, K0, K0, K0
+int topolo[7][7];
+double k[7][7]={    0, 0, 0, K0, K0,  0, K0,
+                    0, 0, 0,  0,  0,  0, K0,
+                    0, 0, 0,-K0,  0,  0,-K0,
+                    0, 0, 0,  0,-K0,  0,  0,
+                    0, 0, 0,-K1, K0, K0,  0,
+                    0, 0, 0,  0,  0,  0,-K2,
+                    0, 0, 0,  0,  0,-K0,  0
                     };
 double C=3.31;  //0.52;
 double alpha[7]={0,0,0,50,0.1,10,100};//0.13;  //2.9;
@@ -83,6 +76,13 @@ int main()
     Gene[5]=new gene();
 //Gt
     Gene[6]=new gene();
+    
+    for(i=0;i<7;i++)
+    {
+        for(j=0;j<7;j++)
+            topolo[i][j]=Sign(k[i][j]);
+    }
+    
     for(i=0;i<T;i++)
     {
         if(i%(T/50)==0)

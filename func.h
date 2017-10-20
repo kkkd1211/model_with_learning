@@ -10,5 +10,5 @@ int diff(pgene Gene[7],int posi);
 int deg(pgene Gene[7],int posi);
 int react(pgene Gene[7],int posi);
 double AactB(pgene Gene[7],int a,int b,int posi);
-
+int Sign(double x);
 #endif

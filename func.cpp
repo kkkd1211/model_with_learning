@@ -74,38 +74,7 @@ int react(pgene Gene[7],int posi)
             tmp*=(1-tmp2);
         Gene[b]->c1[posi]+=tmp;
     }
-
-//    tmp=alpha[6]*dt;
-//    for(a=2;a<7;a++)
-//    {
-//        tmp*=AactB(Gene,a,6,posi);
-//    }
-//    tmp*=(1-(1-AactB(Gene,0,6,posi))*(1-AactB(Gene,1,6,posi)));
-//    Gene[6]->c1[posi]+=tmp;
-
-    }
-
-/*
-double AactB(pgene Gene[7],int a,int b,int posi)
-{
-    if(topolo[a][b]==0)
-        return 1.0;
-    else
-    {
-        double tmp=k[a][b]*Gene[a]->c0[posi];
-        if(topolo[a][b]==1)
-            return(tmp/(1+tmp));
-        else if(topolo[a][b]==-1)
-            return (1/(1+tmp));
-        else if(topolo[a][b]==2)
-            return(tmp/((1+tmp)*(1+tmp)));
-        else
-            return 1;
-    }
 }
-*/
-
-
 double AactB(pgene Gene[7],int a,int b,int posi)
 {
     if(topolo[a][b]==0)
@@ -114,7 +83,7 @@ double AactB(pgene Gene[7],int a,int b,int posi)
     }
     else
     {
-        double tmp=pow(1+C*k[a][b]*Gene[a]->c0[posi],n);
+        double tmp=pow(1+C*fabs(k[a][b])*Gene[a]->c0[posi],n);
         if(topolo[a][b]==1)
         {
             return((tmp-1)/(tmp+C-1));
@@ -133,7 +102,15 @@ double AactB(pgene Gene[7],int a,int b,int posi)
 
 }
 
-
+int Sign(double x)
+{
+    if(x>0)
+        return 1;
+    else if(x<0)
+        return -1;
+    else if(x==0)
+        return 0;
+}
 
 
 
