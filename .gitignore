@@ -1,0 +1,13 @@
+*
+!*.cpp
+!*.c
+!*.h
+!README.md
+!input
+!input/*
+!*.sh
+!*.plt
+!.gitignore
+!output_v0
+!output_v0/*
+
