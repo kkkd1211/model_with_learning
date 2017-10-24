@@ -32,7 +32,7 @@ double D=0.65;  //0.18;
 double dx=0.1;
 double dt=0.0005;
 double d=D*dt/(dx*dx);
-
+double mhb[Nx];
 double k_new[7][7];
 double alpha_new[7];
 double ln_rate;
@@ -83,11 +83,11 @@ int main()
 //Kni
     Gene[3]=new gene();
 //Hb
-//    fp=fopen("input/M_hb.txt","r");
-//    for(i=0;i<100;i++)
-//        fscanf(fp,"%lf\t",&tmp[i]);
-    Gene[4]=new gene();
-//    fclose(fp);
+    fp=fopen("input/M_hb.txt","r");
+    for(i=0;i<100;i++)
+        fscanf(fp,"%lf\t",&mhb[i]);
+    Gene[4]=new gene(mhb);
+    fclose(fp);
 //Kr
     Gene[5]=new gene();
 //Gt
@@ -129,7 +129,7 @@ training(Gene);
     }
     for(i=0;i<T;i++)
     {
-        if(i%(T/50)==0)
+        if((i%(T/50)==0)||(i==0))
         {   
             Gene[3]->print(kni);
             Gene[4]->print(hb);

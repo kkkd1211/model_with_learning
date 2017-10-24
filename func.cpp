@@ -104,11 +104,11 @@ double AactB(pgene Gene[7],int a,int b,int posi)
 
 int Sign(double x)
 {
-    if(x>0.5)
+    if(x>0)
     {
             return 1;
     }
-    else if(x<-0.5)
+    else if(x<0)
     {
             return -1;
     }
@@ -149,7 +149,7 @@ void training(pgene Gene[7])
         {
             for(j=3;j<7;j++)
             {
-                delta=0.01*k[i][j]+0.00001;
+                delta=0.000000001*k[i][j]+0.00001;
                 k_new[i][j]=k[i][j];
                 k[i][j]+=delta;
                 err=run(Gene);
@@ -159,7 +159,7 @@ void training(pgene Gene[7])
         }
         for(i=3;i<7;i++)
         {
-            delta=0.01*alpha[i];
+            delta=0.000000001*alpha[i];
             alpha_new[i]=alpha[i];
             alpha[i]+=delta;
             err=run(Gene);
@@ -182,6 +182,7 @@ double run(pgene Gene[7])
     double err=0;
     for(i=3;i<7;i++)
         Gene[i]->setinit();
+    Gene[4]->setvar(mhb);
     for(i=0;i<7;i++)
     {
         for(j=3;j<7;j++)
