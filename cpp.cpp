@@ -16,6 +16,12 @@ void gene::setinit()
         c1[i]=0.0;
     }
 }
+void gene::setvar(double var[Nx])
+{
+    int i;
+    for(i=0;i<Nx;i++)
+        c0[i]=var[i];
+}
 gene::gene(double ini_c[Nx])
 {
     int i;
