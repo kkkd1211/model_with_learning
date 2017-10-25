@@ -10,4 +10,6 @@
 !.gitignore
 !output_v0
 !output_v0/*
+!*_bak
+
 
