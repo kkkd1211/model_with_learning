@@ -2,8 +2,8 @@ set term gif animate
 set yrange [0:1]
 set output 'output/O.gif'
 do for [i=1:50]{
-plot 'output/kni_P.txt' u i w l lc 18 t 'kni','output/hb_P.txt' u i w l lc 7 t 'hb','output/kr_P.txt' u i w l lc 14 t 'kr','output/gt_P.txt' u i w l lc 21 t 'gt' 
 set title sprintf("%d",i)
+plot 'output/kni_P.txt' u i w l lc 18 t 'kni','output/hb_P.txt' u i w l lc 7 t 'hb','output/kr_P.txt' u i w l lc 14 t 'kr','output/gt_P.txt' u i w l lc 21 t 'gt' 
 }
 
 set term png

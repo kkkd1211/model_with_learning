@@ -7,7 +7,7 @@ using namespace std;
 #define Nx 100
 #define T 2000
 //#define delta 0.001
-#define traintime 10
+#define traintime 3
 #define ln_rate_max 0.9
 #define ln_rate_min 0.2
 extern int topolo[7][7];
