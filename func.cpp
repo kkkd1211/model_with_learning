@@ -149,11 +149,7 @@ void training(pgene Gene[7])
         {
             for(j=3;j<7;j++)
             {
-<<<<<<< HEAD
-                delta=0.0001*k[i][j]+0.00001;
-=======
                 delta=0.000000001*k[i][j]+0.00001;
->>>>>>> 241af7a3409ff87742ab7cfea91242e0415a4615
                 k_new[i][j]=k[i][j];
                 k[i][j]+=delta;
                 err=run(Gene);
@@ -163,11 +159,7 @@ void training(pgene Gene[7])
         }
         for(i=3;i<7;i++)
         {
-<<<<<<< HEAD
-            delta=0.001*alpha[i];
-=======
             delta=0.000000001*alpha[i];
->>>>>>> 241af7a3409ff87742ab7cfea91242e0415a4615
             alpha_new[i]=alpha[i];
             alpha[i]+=delta;
             err=run(Gene);
