@@ -198,6 +198,7 @@ double run(pgene Gene[7])
     {
         err+=Gene[i]->error();
     }
+    return(err);
 }
 
 
